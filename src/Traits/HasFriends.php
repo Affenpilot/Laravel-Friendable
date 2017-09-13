@@ -286,14 +286,14 @@ trait HasFriends
             $query->where('sender_id', $this->id);
             $query->where('sender_type', get_class($this));
 
-            if (! empty($status)) {
+            if (isset($status)) {
                 $query->where('status', $status);
             }
         })->orWhere(function ($query) use ($status) {
             $query->where('recipient_id', $this->id);
             $query->where('recipient_type', get_class($this));
 
-            if (! empty($status)) {
+            if (isset($status)) {
                 $query->where('status', $status);
             }
         });
